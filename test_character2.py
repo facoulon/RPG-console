@@ -113,24 +113,24 @@ class TestCharacter(unittest.TestCase):
         self.assertEquals(w.mana, plop_mana_before_spell_use - s.cost)
 
 
-    # def testWizardInvocation(self):
-    #     w = Wizard("Plop")
-    #     enemy = Warrior("Yup", 50)
-    #
-    #     yup_health_before_apple_use = enemy.health
-    #     plop_mana_before_spell_use = w.mana
-    #
-    #     s = Spell("Fire", 1, 10, 30)
-    #
-    #     with self.assertRaises(Exception):
-    #         w.invoke(s, enemy)
-    #
-    #     w.pick(s)
-    #     w.invoke(s, enemy)
-    #
-    #     self.assertTrue(s not in w.inventory)
-    #     self.assertEquals(w.mana, plop_mana_before_spell_use - s.cost)
-    #     self.assertEquals(enemy.health, yup_health_before_apple_use - s.damage)
+    def testWizardInvocation(self):
+        w = Wizard("Plop")
+        enemy = Warrior("Yup", 50)
+
+        yup_health_before_apple_use = enemy.health
+        plop_mana_before_spell_use = w.mana
+
+        s = Spell("Fire", 1, 10, 30)
+
+        with self.assertRaises(Exception):
+            w.invoke(s, enemy)
+
+        w.pick(s)
+        w.invoke(s, enemy)
+
+        self.assertTrue(s not in w.inventory)
+        self.assertEquals(w.mana, plop_mana_before_spell_use - s.cost)
+        self.assertEquals(enemy.health, yup_health_before_apple_use - s.damage)
 
 if __name__ == '__main__':
     unittest.main()

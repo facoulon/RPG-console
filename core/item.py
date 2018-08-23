@@ -17,7 +17,7 @@ class Spell(Item):
         self.damage = damage
 
     def use(self, character):
-        if character.mana != 0:
+        if character.mana >= self.cost:
             character.mana -= self.cost
 
 

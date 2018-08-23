@@ -22,16 +22,15 @@ class Character():
     def pick(self, item):
         self.inventory.append(item)
 
-
     def drop(self, item):
         self.inventory.remove(item)
 
     def use(self, item):
-
         if item in self.inventory:
             item.use(self)
             self.drop(item)
-        pass
+        else:
+            raise
 
 
 class Warrior(Character):
@@ -51,3 +50,5 @@ class Wizard(Character):
         if spell in self.inventory:
             self.use(spell)
             enemy.health -= spell.damage
+        else:
+            raise
