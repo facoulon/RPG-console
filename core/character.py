@@ -3,6 +3,7 @@
 
 
 class Character():
+    
     def __init__(self, name, health, mana, power, xp):
         self.name = name
         self.health = health
@@ -26,11 +27,13 @@ class Character():
     def use(item):
         pass
 
+
 class Warrior(Character):
 
     def __init__(self, name, armor):
         Character.__init__(self, name, 200, 0, 300, 0)
         self.armor = armor
+
 
 class Wizard(Character):
 

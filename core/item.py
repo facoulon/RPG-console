@@ -8,8 +8,9 @@ class Item():
         self.name = name
         self.weight = weight
 
-    def use(Character):
+    def use(character):
         pass
+
 
 class Spell(Item):
 
@@ -17,6 +18,7 @@ class Spell(Item):
         Item.__init__(self, name, weight)
         self.cost = cost
         self.damage = damage
+
 
 class Apple(Item):
 
