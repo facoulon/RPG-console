@@ -3,7 +3,7 @@
 
 
 class Character():
-    
+
     def __init__(self, name, health, mana, power, xp):
         self.name = name
         self.health = health
@@ -15,16 +15,22 @@ class Character():
     def move(arg):
         pass
 
-    def attack(charater):
-        pass
+    def attack(self, enemy):
+        self.xp += 1
+        enemy.health -= 1
 
-    def loot(item):
-        pass
+    def pick(self, item):
+        self.inventory.append(item)
 
-    def throw(item):
-        pass
 
-    def use(item):
+    def drop(self, item):
+        self.inventory.remove(item)
+
+    def use(self, item):
+
+        if item in self.inventory:
+            item.use(self)
+            self.drop(item)
         pass
 
 
@@ -41,5 +47,7 @@ class Wizard(Character):
         Character.__init__(self, name, 100 , 100, 50, 0)
         self.spells = []
 
-    def invoke(spell):
-        pass
+    def invoke(self, spell, enemy):
+        if spell in self.inventory:
+            self.use(spell)
+            enemy.health -= spell.damage
