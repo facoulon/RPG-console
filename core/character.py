@@ -11,6 +11,8 @@ class Character():
         self.power = power
         self.xp = xp
         self.inventory = []
+        self.x = None
+        self.y = None
 
 
     def attack(self, enemy):
@@ -43,8 +45,6 @@ class Wizard(Character):
     def __init__(self, name):
         Character.__init__(self, name, 100 , 100, 50, 0)
         self.spells = []
-        self.x = None
-        self.y = None
 
     def invoke(self, spell, enemy):
         if spell in self.inventory:

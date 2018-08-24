@@ -13,9 +13,21 @@ class Board():
 
 
     def move(self, character, x, y):
-        for i in range(len(self.grid)):
-            if character in i:
-                self.grid.remove(character)
+        if character.x != None or character.y != None:
+            self.grid[character.x][character.y].remove(character)
         character.x = x
         character.y = y
         self.grid[x][y].append(character)
+
+    def display(self):
+        map = ""
+        for table in self.grid:
+        # for index, value_table in enumerate(self.grid):
+            for cell in table:
+            # for cell in value_table:
+                if cell == []:
+                    map += "-"
+                else:
+                    map += "X"
+            map += "\n"
+        return map
